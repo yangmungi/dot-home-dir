@@ -1,2 +1,4 @@
 #!/bin/bash
-/bin/cat ./bashrc-append.sh >> $HOME/.bashrc
+if [ -a $HOME/dot-home-dir/bashrc-append.sh ]; then
+    /bin/cat $HOME/dot-home-dir/bashrc-append.sh >> $HOME/.bashrc
+fi
