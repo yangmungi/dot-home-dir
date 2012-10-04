@@ -22,21 +22,22 @@ function shell_parse_git_branch() {
 }
 
 # Determine the length of the \! PS1 expansion
-function history_number_string_length() {
-    history | tail -n1 | /usr/bin/awk '{ print length($1) }'
-}
+#function history_number_string_length() {
+#    history | tail -n1 | /usr/bin/awk '{ print length($1) }'
+#}
 
 # Print that with spaces
-function shell_history_number_string_length() {
-    echo | /usr/bin/awk "{ printf \"%-0`history_number_string_length`s\", \" \" }"
-}
+#function shell_history_number_string_length() {
+#    history_number_string_length |  /usr/bin/awk '{ printf "%-0"$0"s", "" }'
+#}
 
 # Bash Prompt
 PSCUSTOM='\[\e[1;33m\]\t \u@\h:`pwd` `shell_parse_git_branch`\[\e[0;37m\]'
 # Bash Prompt Primary
 PS1=$PSCUSTOM'\! $ '
 # Bash Prompt Secondary
-PS2=$PSCUSTOM'`shell_history_number_string_length` > '
+PS2=$PSCUSTOM'\! > '
+#PS2=$PSCUSTOM'`shell_history_number_string_length` > '
 
 # User created aliases
 alias ocd='cd ..'
