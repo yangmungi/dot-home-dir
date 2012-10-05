@@ -34,8 +34,12 @@ fi
 #    PSLS='`ls -x -w'$COLS'`\n'
 #fi
 
+if [ -f /etc/bash_completion.d/git ]; then
+    GITPS1='`__git_ps1`'
+fi
+
 # Bash Prompt
-PSCUSTOM='\[\e[1;33m\]\t \u@\h:`pwd``__git_ps1` [\!]\[\e[0;37m\]'
+PSCUSTOM='\[\e[1;33m\]\t \u@\h:`pwd`'$GITPS1' [\!]\[\e[0;37m\]'
 # Bash Prompt Primary
 PS1=$PSCUSTOM'\n'$PSLS'\$ '
 # Bash Prompt Secondary
