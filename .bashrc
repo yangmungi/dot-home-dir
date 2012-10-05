@@ -37,7 +37,7 @@ fi
 # Bash Prompt
 PSCUSTOM='\[\e[1;33m\]\t \u@\h:`pwd``__git_ps1` [\!]\[\e[0;37m\]'
 # Bash Prompt Primary
-PS1=$PSCUSTOM'\n'$PSLS'$ '
+PS1=$PSCUSTOM'\n'$PSLS'\$ '
 # Bash Prompt Secondary
 PS2='> '
 #PS2=$PSCUSTOM'`shell_history_number_string_length` > '
@@ -48,7 +48,7 @@ alias ls='ls --color'
 alias ll='ls -al'
 
 export HISTCONTROL=ignoreboth
-export HISTIGNORE="&:clear:l[ls]:[bf]g:exit:\t*"
+export HISTIGNORE="&:clear:l[ls]:[bf]g:exit"
 
 PATH=$PATH:/usr/sbin/
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
