@@ -5,21 +5,19 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-PATH=$PATH:/usr/sbin/
-
 # Use to display git branch for current WD
-function parse_git_branch() {
-    /usr/bin/git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/\* \(.*\)/\1/'
-}
+#function parse_git_branch() {
+#   /usr/bin/git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/\* \(.*\)/\1/'
+#}
 
 # Use to make git branch display pretty
-function shell_parse_git_branch() {
-    branch_str=`parse_git_branch`
-    if [ -n "$branch_str" ]
-    then
-        echo "($branch_str) "
-    fi
-}
+#function shell_parse_git_branch() {
+#    branch_str=`parse_git_branch`
+#    if [ -n "$branch_str" ]
+#    then
+#        echo "($branch_str) "
+#    fi
+#}
 
 # Determine the length of the \! PS1 expansion
 #function history_number_string_length() {
@@ -31,12 +29,17 @@ function shell_parse_git_branch() {
 #    history_number_string_length |  /usr/bin/awk '{ printf "%-0"$0"s", "" }'
 #}
 
+#if [ `tput cols` ]; then
+#    COLS=`tput cols`
+#    PSLS='`ls -x -w'$COLS'`\n'
+#fi
+
 # Bash Prompt
-PSCUSTOM='\[\e[1;33m\]\t \u@\h:`pwd` `shell_parse_git_branch`\[\e[0;37m\]'
+PSCUSTOM='\[\e[1;33m\]\t \u@\h:`pwd``__git_ps1` [\!]\[\e[0;37m\]'
 # Bash Prompt Primary
-PS1=$PSCUSTOM'\! $ '
+PS1=$PSCUSTOM'\n'$PSLS'$ '
 # Bash Prompt Secondary
-PS2=$PSCUSTOM'\! > '
+PS2='> '
 #PS2=$PSCUSTOM'`shell_history_number_string_length` > '
 
 # User created aliases
@@ -47,4 +50,5 @@ alias ll='ls -al'
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:clear:l[ls]:[bf]g:exit:\t*"
 
+PATH=$PATH:/usr/sbin/
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
