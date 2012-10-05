@@ -34,7 +34,7 @@ fi
 #    PSLS='`ls -x -w'$COLS'`\n'
 #fi
 
-if [ -f /etc/bash_completion.d/git ]; then
+if [ `type -t __git_ps1` ]; then
     GITPS1='`__git_ps1`'
 fi
 
