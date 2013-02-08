@@ -24,7 +24,7 @@ syntax on
 
 "" Dependent on system actually
 "set background=light
-set background=dark
+"set background=dark
 
 set hlsearch
 
