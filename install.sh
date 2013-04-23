@@ -1,11 +1,25 @@
 #!/bin/bash
-if [ -a $HOME/dot-home-dir/bashrc-append.sh ]; then
-    if [ -z "$(grep dot-home-dir $HOME/.bashrc)" ]; then
-        /bin/cat $HOME/dot-home-dir/bashrc-append.sh >> $HOME/.bashrc
-    fi
 
-    ln -s $HOME/dot-home-dir/.vimrc     $HOME/.vimrc    2> /dev/null
-    ln -s $HOME/dot-home-dir/.screenrc  $HOME/.screenrc 2> /dev/null
-    ln -s $HOME/dot-home-dir/.toprc     $HOME/.toprc    2> /dev/null
+_COMMAND="cp -v"
+_DHD="$HOME/dot-home-dir"
+
+# Copy all the other ones
+$_COMMAND $_DHD/vimrc         $HOME/.vimrc    2> /dev/null
+$_COMMAND $_DHD/screenrc      $HOME/.screenrc 2> /dev/null
+$_COMMAND $_DHD/toprc         $HOME/.toprc    2> /dev/null
+$_COMMAND $_DHD/bashrc-common $HOME/.bashrc   2> /dev/null
+
+# Art thou Linux?
+ls --color > /dev/null 2> /dev/null
+_LS_R=$?
+
+# Extract bash
+_BASH="linux"
+if [ $_LS_R ]; then
+    _BASH="unix"
 fi
 
+_BASH_FILE="bashrc-$_BASH"
+
+echo "extending .bashrc with $_BASH_FILE"
+/bin/cat $_DHD/$_BASH_FILE >> $HOME/.bashrc
