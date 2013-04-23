@@ -20,7 +20,7 @@ set background=dark
 set hlsearch
 
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=list:longest
 
 set ruler
 "colorscheme elflord
