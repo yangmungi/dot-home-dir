@@ -6,8 +6,8 @@ inoremap # X<BS>#
 set smartindent
 set expandtab
 
-set sw=4
-set ts=4
+set sw=2
+set ts=2
 
 "" Line numbers
 set nu
