@@ -3,8 +3,8 @@ caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}
 hardstatus alwayslastline
 hardstatus string '%{= g}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %D %d/%m%{W}%C %A %{g}]'
 
-# 2^14 lines
-defscrollback 16384
+# 2^16 lines
+defscrollback 65536
 vbell off
 
 # Some preset screens to load
