@@ -17,4 +17,7 @@ PS2='> '
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:clear:l[ls]:[bf]g:exit"
 
+# Set to Vi mode because FUCK YEA
+set -o vi
+
 PATH=$PATH:/usr/sbin/
