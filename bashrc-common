@@ -10,14 +10,14 @@ if [ `type -t __git_ps1` ]; then
 fi
 
 # Bash Prompt
-PS1='\[\e[1;33m\]\t \u@\h:\W'$GITPS1'[\!]\[\e[0m\] $ '
+PS1='\[\e[1;33m\]\t \u@\h:\W'$GITPS1' [\!]\[\e[0m\] $ '
 PS2='> '
 
 # History saving configuration
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:clear:l[ls]:[bf]g:exit"
 
-# Set to Vi mode because FUCK YEA
+# Set to Vi mode
 set -o vi
 
 PATH=$PATH:/usr/sbin/
