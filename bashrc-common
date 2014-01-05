@@ -5,6 +5,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# Enable Git-auto-completes
 if [ `type -t __git_ps1` ]; then
     GITPS1='`__git_ps1`'
 fi
@@ -13,11 +14,23 @@ fi
 PS1='\[\e[1;33m\]\t \u@\h:\W'$GITPS1' [\!]\[\e[0m\] $ '
 PS2='> '
 
-# History saving configuration
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# we have the space
+export HISTSIZE=12000
+export HISTFILESIZE=24000
+
+# ignore duplicates
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:clear:l[ls]:[bf]g:exit"
 
 # Set to Vi mode
 set -o vi
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Include system binaries
 PATH=$PATH:/usr/sbin/
