@@ -6,9 +6,7 @@ inoremap # X<BS>#
 set smartindent
 set expandtab
 
-" Shift width
 set sw=2
-" Tab Stop
 set ts=2
 
 "" Line numbers
