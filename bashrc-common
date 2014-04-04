@@ -30,5 +30,8 @@ export HISTIGNORE="&:clear:l[ls]:[bf]g:exit"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# Auto width sdiff?
+alias sdiff="sdiff -w `tput cols`"
+
 # Include system binaries
 PATH=$PATH:/usr/sbin/
