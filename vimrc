@@ -1,35 +1,31 @@
 """ VIM RC
 
 set autoindent
-"" smartindent will no longer make # start in the beginning (useful only as C precompiler directives)
-inoremap # X<BS>#
 set smartindent
 set expandtab
 
-set sw=2
-set ts=2
+" smartindent will no longer make # start in the beginning 
+" (useful only as C precompiler directives)
+inoremap # X<BS>#
+
+" displayed tabs
+set tabstop=8
+" `tab` 
+set softtabstop=4
+" `<` and `>` 
+set shiftwidth=4
 
 "" Line numbers
-set nu
-
-"" Faster window swapping...
-"map - <c-w>w
-
-"set term=linux
-"set term=xterm-color
+set number
 
 syntax on
-
-"" Dependent on system actually
-"set background=light
-"set background=dark
 
 set hlsearch
 
 "" Much less thrashy
 set wildmenu
-set wildmode=list:longest
+set wildmode=longest:list
 
 set ruler
 
-"colorscheme elflord
+autocmd FileType ruby setlocal softtabstop=2 shiftwidth=2
