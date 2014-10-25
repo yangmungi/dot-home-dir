@@ -7,6 +7,9 @@ set expandtab
 " smartindent will no longer make # start in the beginning 
 " (useful only as C precompiler directives)
 inoremap # X<BS>#
+" emacs-esque B/EoL movement
+imap <C-a> <Home>
+imap <C-e> <End>
 
 " displayed tabs
 set tabstop=8
