@@ -1,0 +1,3 @@
+new-window "/usr/bin/htop"
+split-window -v -l 18 "/usr/bin/iostat -kdt 3"
+split-window -h "/usr/bin/sar 3"
