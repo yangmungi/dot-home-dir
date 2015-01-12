@@ -16,13 +16,19 @@ bindkey -e
 
 setopt HIST_IGNORE_DUPS
 
+DIRSTACKSIZE=8
+setopt autopushd pushdminus pushdsilent pushdtohome
+
 autoload -U promptinit
 promptinit
 
 autoload -U colors
 colors
 
+autoload -Uz select-word-style
+select-word-style bash
+
 alias ls="ls --color=auto"
 alias ll="ls -l"
 
-PROMPT="%{$fg_no_bold[blue]%}[%D{%y-%m-%d %H:%M:%S}] %n@%M:%~ %{$reset_color%}%# "
+PROMPT="%{$fg_no_bold[yellow]%}[%D{%y-%m-%d %H:%M:%S}]%{$fg_no_bold[green]%} %n@%M:%~ %{$reset_color%}%# "
