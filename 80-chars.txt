@@ -41,3 +41,6 @@ SsCcVvPp
 O0@
 ;,
 ij
+
+== utf8 ==
+€
